@@ -19,27 +19,36 @@ list_t *list_alloc()
 
 void list_free(list_t *l) 
 {
-
-  while(l->head)
+  node_t *current = l->head;
+  while (current)
     {
-      node_t* next = l->head->next;
-      //free(l->head); //Hey Professor, I would get a double free or corruption error whenever I put 
-      l->head = NULL; //Any advice? The functions all pass however
-      l->head = next;
-    } 
-  
+    node_t *next = current->next;
+    free(current);
+    current = next;
+  }
+  l->head = NULL;
 }
 
 void list_print(list_t *l) 
 {
-  if(list_length(l) > 0)
+  if(l->head)
   {
     node_t *current = l->head;
+    printf("[");
     while(current)
     {
-      printf("%d\n",current->value);
+      printf("%d",current->value);
+      if (current->next)
+      {
+        printf(", ");
+      }
       current = current->next;
     }
+    printf("]\n");
+  }
+  else
+  {
+    printf("[]\n");
   }
 }
 
@@ -60,20 +69,12 @@ char * listToString(list_t *l) {
 int list_length(list_t *l) 
 {
   int length = 0;
-  if(!l->head)
-  {
-    return 0;
-  }
-  else
-  {
   node_t *current = l->head;
   while(current)
     {
       length++;
       current = current->next;
     }
-  }
-
   return length;
 }
 
@@ -147,15 +148,15 @@ void list_add_at_index(list_t *l, elem value, int index)
     }
     previous->next = new_node;
     new_node->next = current;
-   
+
   }
-  
+
 }
 
 elem list_remove_from_back(list_t *l) 
 { 
   int return_value = -1;
-  if(!l->head || list_length(l) == 0)
+  if(!l->head)
   {
     return -1;
   }
@@ -163,6 +164,7 @@ elem list_remove_from_back(list_t *l)
   {
     return_value = l->head->value;
     free(l->head);
+    l->head = NULL;
     return return_value;
   }
   node_t *current = l->head;
@@ -173,21 +175,20 @@ elem list_remove_from_back(list_t *l)
 
   return_value = current->next->value;
   free(current->next);
+  current->next = NULL;
   return return_value; 
 }
 
 elem list_remove_from_front(list_t *l) 
 { 
   int return_value = -1;
-  node_t *current = NULL;
-  if(l->head == NULL || list_length(l) ==0)
-  {
+  if (l->head == NULL) {
     return return_value;
   }
-  current = l->head->next;
-  free(l->head);
-  l->head = current;
-  return_value = l->head->value;
+  node_t *temp = l->head;
+  return_value = temp->value;
+  l->head = l->head->next;
+  free(temp);
   return return_value;
 }
 
@@ -246,19 +247,13 @@ bool list_is_in(list_t *l, elem value)
 elem list_get_elem_at(list_t *l, int index) 
 {
   node_t *current = l->head;
-  if(!current || index > list_length(l)|| index < 1)
-  {
+  if (index < 1 || index > list_length(l)) {
     return -1;
   }
-  else if(index == 1)
-  {
-    return current->value;
-  }
   int i = 0;
-  for(i = 0; i < index-1; i++)
-    {
-      current = current->next;
-    }
+  for (i = 0; i < index - 1; i++) {
+    current = current->next;
+  }
   return current->value;
 }
 
@@ -269,18 +264,15 @@ int list_get_index_of(list_t *l, elem value)
   {
     return -1;
   }
-  else
+  int index = 0;
+  while(current)
   {
-    int index = -1;
-    while(current)
-      {
-        if(current->value == value)
-        {
-          return index;
-        }
-        index++;
-        current = current->next;
-      }
+    if(current->value == value)
+    {
+      return index;
+    }
+    index++;
+    current = current->next;
   }
   return -1;
 }
