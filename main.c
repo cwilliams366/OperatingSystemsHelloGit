@@ -8,11 +8,20 @@ int main() {
   printf("Write your Tests for your linked list implementation\n");
   list_t *mylist;
   mylist = list_alloc();
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Adding elements to front of linked list:\n");
   list_add_to_front(mylist, 10);
   list_add_to_front(mylist, 20);
   list_add_to_front(mylist, 30);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+
+  printf("Adding more elements to front of linked list:\n");
   list_add_to_front(mylist, 40);
   list_add_to_front(mylist, 50);
   list_add_to_front(mylist, 60);
@@ -20,66 +29,145 @@ int main() {
   list_add_to_front(mylist, 80);
   list_add_to_front(mylist, 90);
   list_add_to_front(mylist, 100);
-
+  printf("\n");
+  printf("Checking if the list_add_to_front function works correctly: \n");
+  printf("------------------------------------\n");
   if(strcmp("100->90->80->70->60->50->40->30->20->10->NULL",listToString(mylist)) != 0)
   {
         printf("list_add_to_front : FAILED\n");
   }
-
+  else
+  {
+    printf("|100|-> |90| ->|80| -> |70| -> |60| -> |50| -> |40| -> |30| -> |20| -> |10| -> |NULL|\n");
+    printf("                |             \n");
+    printf("                V             \n");
+  }
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Removing the element at index: 3\n");
   list_remove_at_index(mylist, 3);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
-
+  printf("------------------------------------\n");
+  printf("Checking if the list_remove_at_index function works correctly: \n");
+  printf("------------------------------------\n");
   if(strcmp("100->90->70->60->50->40->30->20->10->NULL",listToString(mylist)) != 0)
   {
         printf("list_remove_at_index : FAILED\n");
   }
-
+  else
+  {
+    printf("|100| ->|90| -> |70| -> |60| -> |50| -> |40| -> |30| -> |20| -> |10| -> |NULL|\n");
+    printf("                |             \n");
+    printf("                V             \n");
+  }
+  printf("Attempting to remove the element at index: 20\n");
   list_remove_at_index(mylist, 20);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
   list_remove_at_index(mylist, 1);
+  printf("Removing the element at index: 1\n");
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
   list_remove_at_index(mylist, 6);
+  printf("Removing the element at index: 6\n");
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
-
+  printf("------------------------------------\n");
+  printf("Checking if the list_remove_at_index function works correctly: \n");
+  printf("------------------------------------\n");
   if(strcmp("90->70->60->50->40->20->10->NULL",listToString(mylist)) != 0)
   {
         printf("list_remove_at_index : FAILED\n");
   }
-  
-
-  printf("The list length is %d\n", list_length(mylist));
-
-  list_add_to_back(mylist, 39);
+  else
+  {
+    printf("|90| -> |70| -> |60| -> |50| -> |40| -> |20| -> |10| -> |NULL|\n");
+    printf("                |             \n");
+    printf("                V             \n");
+  }
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("The list length is %d\n", list_length(mylist));
+  printf("Adding elements to the back of the linked list");
+  list_add_to_back(mylist, 39);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
+  list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Adding elements to the back of the linked list");
   list_add_to_back(mylist, 18);
   list_add_to_back(mylist, 42);
   list_add_to_back(mylist, 190);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Emptying the linked list and freeing memory!");
   list_free(mylist);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
-
+  printf("------------------------------------\n");
+  printf("Adding element: 81 to the front of the linked list");
   list_add_to_front(mylist, 81);
+  printf("Adding element: 4 to the back of the linked list");
   list_add_to_back(mylist, 4);
+  printf("Adding element: 308 to the front of the linked list");
   list_add_to_front(mylist, 308);
+  printf("Adding element: 70 to the back of the linked list");
   list_add_to_back(mylist, 70);
+  printf("Adding element: 290 to the front of the linked list");
   list_add_to_front(mylist, 290);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
   printf("The list length is %d\n", list_length(mylist));
-  
+  printf("Adding element: 21 at index: 1 of the linked list");
   list_add_at_index(mylist, 21, 1);
+  printf("Adding element: 65 at index: 0 of the linked list");
   list_add_at_index(mylist, 65, 0);
+  printf("Adding element: 10 at index: 8 of the linked list");
   list_add_at_index(mylist, 10, 8);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Adding element: 10 at index: 7 of the linked list");
   list_add_at_index(mylist, 10, 7);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
-
+  printf("------------------------------------\n");
+  printf("Removing an element from the back of the linked list\n");
   list_remove_from_back(mylist);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Removing an element from the front of the linked list\n");
   list_remove_from_front(mylist);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Removing the element at index: 3 of the linked list");
   list_remove_at_index(mylist, 3);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
 
   printf("Is %d in the list?: %d\n", 21, list_is_in(mylist, 21));
   printf("Value at %d in the list?: %d\n", 3, list_get_elem_at(mylist, 3));
@@ -95,85 +183,188 @@ int main() {
   printf("Index of %d?: %d\n", 90, list_get_index_of(mylist, 90));
   printf("Index of %d?: %d\n", 81, list_get_index_of(mylist, 81));
   
+  printf("Emptying the linked list and freeing memory!");
   list_free(mylist);
+  printf("Attempting to add element: -1 at index: -1 of the linked list");
   list_add_at_index(mylist, -1, -1);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Attempting to add element: -1 at index: -1 of the linked list");
   list_add_at_index(mylist, -1, -1);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Adding the element: 10 at index: 0 of the linked list");
   list_add_at_index(mylist, 10, 0);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Adding the element: 20 at index: 1 of the linked list");
   list_add_at_index(mylist, 20, 1);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Emptying the linked list and freeing memory!");
   list_free(mylist);
   printf("The list length is %d\n", list_length(mylist));
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
 
+  printf("Removing an element from the back of the linked list\n");
   list_remove_from_back(mylist);
+  printf("Removing an element from the front of the linked list\n");
   list_remove_from_front(mylist);
+  printf("Attempting to remove the element at index: -3 of the linked list\n");
   list_remove_at_index(mylist, -3);
+  printf("Removing the element at index: 0 of the linked list\n");
   list_remove_at_index(mylist, 0);
+  printf("Removing the element at index: 2 of the linked list\n");
   list_remove_at_index(mylist, 2);
+  printf("Removing the elements: 10, 20, 30, 40, 60 and 50 at the front of the linked list\n");
   list_add_to_front(mylist, 10);
   list_add_to_front(mylist, 20);
   list_add_to_front(mylist, 30);
   list_add_to_front(mylist, 40);
   list_add_to_front(mylist, 60);
+  printf("Adding the element: 50 at index: 1 of the linked list\n");
   list_add_at_index(mylist, 50, 1);
+  printf("Adding the element: 0 at index: 6 of the linked list\n");
   list_add_at_index(mylist, 0, 6);
+  printf("Adding the element: 70 at index: 0 of the linked list\n");
   list_add_at_index(mylist, 70, 0);
+  printf("Adding the element: 80 at index: 12 of the linked list\n");
   list_add_at_index(mylist, 80, 12);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
 
+  printf("Emptying the linked list and freeing memory!");
   list_free(mylist);
+  printf("Removing an element from the back of the linked list\n");
   list_add_to_back(mylist, 100);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Removing an element from the front of the linked list\n");
   list_remove_from_front(mylist);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Removing an element from the back of the linked list\n");
   list_add_to_back(mylist, 13);  
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Removing an element from the back of the linked list\n");
   list_remove_from_back(mylist);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
 
+  printf("Adding elements: 10, 20, 30, 40 and 60 at the front of the linked list\n");
   list_add_to_front(mylist, 10);
   list_add_to_front(mylist, 20);
   list_add_to_front(mylist, 30);
   list_add_to_front(mylist, 40);
   list_add_to_front(mylist, 60);
-  list_print(mylist);
-  list_remove_at_index(mylist, 0);
-  list_print(mylist);
-  list_remove_at_index(mylist, -2);
-  list_print(mylist);
-  list_remove_at_index(mylist, 7);
-  list_print(mylist);
-  list_remove_at_index(mylist, 4);
-  list_print(mylist);
 
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
+  list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Removing the element at index: 0 of the linked list\n");
+  list_remove_at_index(mylist, 0);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
+  list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Attempting to remove the element at index: -2 of the linked list\n");
+  list_remove_at_index(mylist, -2);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
+  list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Attempting to remove the element at index: 7 of the linked list\n");
+  list_remove_at_index(mylist, 7);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
+  list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Removing the element at index: 4 of the linked list\n");
+  list_remove_at_index(mylist, 4);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
+  list_print(mylist);
+  printf("------------------------------------\n");
+
+  printf("Emptying the linked list and freeing memory!");
   list_free(mylist);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Attempting to remove the element at index: 0 of the linked list\n");
   list_remove_at_index(mylist, 0);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Adding an element at the front of the linked list\n");
   list_add_to_front(mylist, 60);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Removing the element at index: 1 of the linked list\n");
   list_remove_at_index(mylist, 1);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Adding an element at the front of the linked list\n");
   list_add_to_front(mylist, 80);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
+  printf("Removing the element at index: 0 of the linked list\n");
   list_remove_at_index(mylist, 0);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
 
   printf("Is %d in the list?: %d\n", 60, list_is_in(mylist, 60));
+  printf("Adding the elements: 50, 60, 70, 80 and 90 at the back of the linked list\n");
   list_add_to_back(mylist, 50);
   list_add_to_back(mylist, 60);
   list_add_to_back(mylist, 70);
   list_add_to_back(mylist, 80);
   list_add_to_back(mylist, 90);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
   printf("Is %d in the list?: %d\n", 30, list_is_in(mylist, 30));
   printf("Is %d in the list?: %d\n", 60, list_is_in(mylist, 60));
   printf("Is %d in the list?: %d\n", 80, list_is_in(mylist, 80));
   list_add_to_back(mylist, 70);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
   printf("Is %d in the list?: %d\n", 70, list_is_in(mylist, 70));
   
   printf("The list length is %d\n", list_length(mylist));
@@ -182,31 +373,52 @@ int main() {
   printf("Value at %d in the list?: %d\n", 6, list_get_elem_at(mylist, 6));
   printf("Value at %d in the list?: %d\n", 5, list_get_elem_at(mylist, 5));
   printf("Value at %d in the list?: %d\n", 0, list_get_elem_at(mylist, 0));
+  printf("Emptying the linked list and freeing memory!");
   list_free(mylist);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
   printf("Value at %d in the list?: %d\n", 0, list_get_elem_at(mylist, 0));
+  printf("Removing the element at index: 0 of the linked list\n");
   list_remove_at_index(mylist, 0);
   printf("Is %d in the list?: %d\n", 21, list_is_in(mylist, 21));
   printf("Index of %d?: %d\n", 21, list_get_index_of(mylist, 21));
+  printf("Adding the elements: 10, 20, 30, 40 and 50 at the back of the linked list\n");
   list_add_to_front(mylist, 10);
   list_add_to_front(mylist, 20);
   list_add_to_front(mylist, 30);
   list_add_to_front(mylist, 40);
   list_add_to_front(mylist, 50);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
   printf("Index of %d?: %d\n", 50, list_get_index_of(mylist, 50));
   printf("Index of %d?: %d\n", 81, list_get_index_of(mylist, 81));
   printf("Index of %d?: %d\n", 10, list_get_index_of(mylist, 10));
   printf("Index of %d?: %d\n", 30, list_get_index_of(mylist, 30));
+  printf("Adding an element at the front of the linked list\n");
   list_add_to_front(mylist, 60);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
   printf("Index of %d?: %d\n", 50, list_get_index_of(mylist, 50));
   printf("Index of %d?: %d\n", 60, list_get_index_of(mylist, 60));
+  printf("Adding an element at the front of the linked list\n");
   list_add_to_front(mylist, 10);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
   printf("Index of %d?: %d\n", 10, list_get_index_of(mylist, 10));
+  printf("Adding an element at the back of the linked list\n");
   list_add_to_back(mylist, 40);
+  printf("Print current linked list elements: \n");
+  printf("------------------------------------\n");
   list_print(mylist);
+  printf("------------------------------------\n");
   printf("Index of %d?: %d\n", 40, list_get_index_of(mylist, 40));
   return 0;
 }
